@@ -5,19 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GrassCutter_Proxy" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="157" Width="487">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedCMD}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <CheckBox IsChecked="{Binding State}" Content="运行状态" IsEnabled="False"/>
-        <TextBox HorizontalAlignment="Left" Margin="312,221,0,0" TextWrapping="Wrap" Text="{Binding Host}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="开启/关闭" HorizontalAlignment="Left" Margin="453,180,0,0" VerticalAlignment="Top" Height="60" Width="127" Command="{Binding StartCMD}"/>
-        <TextBox HorizontalAlignment="Left" Margin="312,180,0,0" TextWrapping="Wrap" Text="{Binding Port}" VerticalAlignment="Top" Width="120"/>
-        <Label Content="代理端口" HorizontalAlignment="Left" Margin="255,176,0,0" VerticalAlignment="Top"/>
-        <Label Content="代理目标" HorizontalAlignment="Left" Margin="255,217,0,0" VerticalAlignment="Top"/>
+    <Canvas>
+        <CheckBox Height="17" Width="170" IsChecked="{Binding State}" Content="运行状态" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Center">
+        </CheckBox>
+        <Button Content="测试连接" Command="{Binding TestCMD}" Canvas.Left="307" Canvas.Top="44" HorizontalAlignment="Left" Height="52" VerticalAlignment="Center" Width="104"/>
 
-    </Grid>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Host}" VerticalAlignment="Top" Width="120" Canvas.Left="73" Canvas.Top="83"/>
+        <Button Content="开启/关闭" HorizontalAlignment="Left" VerticalAlignment="Center" Height="58" Width="104" Command="{Binding StartCMD}" Canvas.Left="198" Canvas.Top="41"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Port}" VerticalAlignment="Top" Width="120" Canvas.Left="73" Canvas.Top="45"/>
+        <Label Content="代理端口" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="37"/>
+        <Label Content="代理目标" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="75"/>
+
+    </Canvas>
 </Window>

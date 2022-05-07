@@ -234,6 +234,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\ProxyController.cs" />
+    <Compile Include="Common\Request.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

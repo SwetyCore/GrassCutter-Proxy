@@ -13,5 +13,18 @@ namespace GrassCutter_Proxy
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnExit(ExitEventArgs e)
+        {
+            try
+            {
+                Common.Global.controller.Stop();
+
+            }
+            catch (Exception)
+            {
+
+            }
+            base.OnExit(e);
+        }
     }
 }

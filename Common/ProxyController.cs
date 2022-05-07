@@ -9,7 +9,10 @@ using System.Windows;
 
 namespace GrassCutter_Proxy.Common
 {
-
+    public static class Global
+    {
+        public static ProxyController controller { get; set; }
+    }
 
     public class ProxyController
     {
@@ -49,7 +52,7 @@ namespace GrassCutter_Proxy.Common
 
 
 
-        static void CheckCert(object sender, ValidateServerCertificateEventArgs e)
+        void CheckCert(object sender, ValidateServerCertificateEventArgs e)
         {
             //if (SslPolicyErrors.None == e.CertificatePolicyErrors)
             //{
@@ -62,16 +65,25 @@ namespace GrassCutter_Proxy.Common
                 return;
             }
 
-            bool oResult = true;
-            if (oResult)
+
+
+            if (e.Session.hostname==this.host)
             {
-                //e.ExpectedCN
                 e.ValidityState = CertificateValidity.ForceValid;
+
             }
-            else
-            {
-                e.ValidityState = CertificateValidity.ForceInvalid;
-            }
+
+
+            //bool oResult = true;
+            //if (oResult)
+            //{
+            //    //e.ExpectedCN
+            //    e.ValidityState = CertificateValidity.ForceValid;
+            //}
+            //else
+            //{
+            //    e.ValidityState = CertificateValidity.ForceInvalid;
+            //}
 
         }
         private void BeforeReq(Session s)
